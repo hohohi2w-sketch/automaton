@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { getEncoding } from "js-tiktoken";
 import {
   ContextManager,
   createTokenCounter,
@@ -65,6 +66,44 @@ describe("createTokenCounter", () => {
 
     expect(first).toBe(second);
     expect(counter.cache.size).toBe(sizeAfterFirst);
+  });
+
+  it("counts ordinary prose exactly like the plain encoder", () => {
+    const counter = createTokenCounter();
+    const encoder = getEncoding("cl100k_base");
+    const samples = [
+      "Hello world",
+      "The automaton pays for its own compute.\n\n- step one\n- step two",
+      'const result = await fetch("https://example.com/api?x=1");',
+    ];
+    for (const text of samples) {
+      expect(counter.countTokens(text)).toBe(encoder.encode(text).length);
+    }
+  });
+
+  it("counts long single-piece runs in linear time (no BPE blow-up)", () => {
+    const counter = createTokenCounter();
+    const inputs = [
+      "x".repeat(50_000),
+      " ".repeat(50_000),
+      "-".repeat(50_000),
+      "自主智能体".repeat(10_000),
+      "😀".repeat(10_000),
+    ];
+
+    const started = performance.now();
+    const counts = inputs.map((text) => counter.countTokens(text));
+    const elapsedMs = performance.now() - started;
+
+    // Unchunked, the first input alone blocks for minutes. Chunked, all of
+    // them together take about a second; the bound leaves room for slow CI.
+    expect(elapsedMs).toBeLessThan(10_000);
+    // "xxxxxxxx" is a single cl100k token, so 50k x's are 6,250 tokens.
+    expect(counts[0]).toBe(6_250);
+    for (const count of counts) {
+      expect(Number.isFinite(count)).toBe(true);
+      expect(count).toBeGreaterThan(0);
+    }
   });
 
   it("LRU cache limits to 10000 entries", () => {

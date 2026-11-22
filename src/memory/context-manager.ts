@@ -128,6 +128,53 @@ function formatCacheKey(text: string, model?: string): string {
   return `${model ?? "default"}::${text}`;
 }
 
+/**
+ * js-tiktoken's byte-pair merge is quadratic in the length of a single
+ * pre-tokenized piece. Long runs of letters ("aaaa…", CJK paragraphs),
+ * punctuation or whitespace each form one piece, so encoding 16k repeated
+ * characters blocks the event loop for ~24s and 50k for minutes. Such runs are
+ * encoded in short chunks instead: the cost stays linear and the count moves
+ * by at most about one token per chunk boundary, which is fine for budgeting.
+ */
+const MAX_ENCODE_RUN_CHARS = 32;
+const LONG_RUN_PATTERN = new RegExp(
+  `\\p{L}{${MAX_ENCODE_RUN_CHARS + 1},}` +
+    `|[^\\s\\p{L}\\p{N}]{${MAX_ENCODE_RUN_CHARS + 1},}` +
+    `|\\s{${MAX_ENCODE_RUN_CHARS + 1},}`,
+  "gu",
+);
+
+function encodeRunInChunks(encoder: Tiktoken, run: string): number {
+  let count = 0;
+  let start = 0;
+  while (start < run.length) {
+    let end = Math.min(start + MAX_ENCODE_RUN_CHARS, run.length);
+    // Never split a surrogate pair across two chunks.
+    const last = run.charCodeAt(end - 1);
+    if (end < run.length && last >= 0xd800 && last <= 0xdbff) end += 1;
+    count += encoder.encode(run.slice(start, end)).length;
+    start = end;
+  }
+  return count;
+}
+
+function countEncodedTokens(encoder: Tiktoken, text: string): number {
+  let count = 0;
+  let cursor = 0;
+  for (const match of text.matchAll(LONG_RUN_PATTERN)) {
+    const runStart = match.index ?? 0;
+    if (runStart > cursor) {
+      count += encoder.encode(text.slice(cursor, runStart)).length;
+    }
+    count += encodeRunInChunks(encoder, match[0]);
+    cursor = runStart + match[0].length;
+  }
+  if (cursor < text.length) {
+    count += encoder.encode(text.slice(cursor)).length;
+  }
+  return count;
+}
+
 export function createTokenCounter(): TokenCounter {
   const cache = new Map<string, number>();
   let encoder: Tiktoken | null = null;
@@ -152,7 +199,7 @@ export function createTokenCounter(): TokenCounter {
     let count: number;
     if (encoder) {
       try {
-        count = encoder.encode(normalizedText).length;
+        count = countEncodedTokens(encoder, normalizedText);
       } catch {
         count = Math.ceil(normalizedText.length / 3.5);
       }
