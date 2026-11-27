@@ -21,7 +21,7 @@ def page(title, desc, body, depth=0):
 # Deutsche Abflughäfen (inkl. Low-Cost-Basen, die viel auf den Balkan fliegen)
 VON = [("FRA","Frankfurt"),("MUC","München"),("STR","Stuttgart"),("DUS","Düsseldorf"),("CGN","Köln/Bonn"),
        ("DTM","Dortmund"),("FMM","Memmingen"),("HHN","Frankfurt-Hahn"),("NUE","Nürnberg"),("HAM","Hamburg"),
-       ("BER","Berlin"),("HAJ","Hannover"),("FKB","Karlsruhe/Baden-Baden"),("BRE","Bremen"),("LEJ","Leipzig"),("ZRH","Zürich (Schweiz)")]
+       ("BER","Berlin"),("HAJ","Hannover"),("FKB","Karlsruhe/Baden-Baden"),("BRE","Bremen"),("LEJ","Leipzig"),("ZRH","Zürich (Schweiz)"),("BSL","Basel (Schweiz)")]
 
 # (slug, Stadt, Land, Flagge, Code, Text, Preis, Tipps, Airlines)
 ZIELE = [

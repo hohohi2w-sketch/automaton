@@ -33,7 +33,7 @@ Ehrlich gesagt: Die ersten 3–6 Monate kommt kaum Geld rein. Garantiert ist nic
 **Kein Geld ausgeben für:** gekaufte Besucher, „SEO-Pakete“, Kurse.
 
 ## Schritt 2 – Besucher holen (kostenlos, das ist der wichtigste Teil)
-Deine Zielgruppe: die **Diaspora aus Kosovo, Albanien, Nordmazedonien und Montenegro in Deutschland und der Schweiz**. Allein in der Schweiz leben sehr viele Menschen mit Wurzeln im Kosovo und in Albanien, daher ist Zürich als Abflughafen wichtig.
+Deine Zielgruppe: die **Diaspora aus Kosovo, Albanien, Nordmazedonien und Montenegro in Deutschland und der Schweiz**. Allein in der Schweiz leben sehr viele Menschen mit Wurzeln im Kosovo und in Albanien, daher sind Zürich und Basel als Abflughäfen wichtig.
 
 - **Facebook-Gruppen** der Diaspora (z.B. „Shqiptarët në Gjermani“, „Shqiptarët në Zvicër“, Kosovaren- und Mazedonier-Gruppen): regelmäßig echte Deals posten, zum Beispiel „Zürich → Pristina für 59 €“. Vorher die Gruppenregeln lesen, sonst wirst du als Spam gelöscht.
 - **TikTok und Instagram auf Albanisch und Mazedonisch:** kurze Videos mit dem günstigsten Flug der Woche, Link in der Bio.
