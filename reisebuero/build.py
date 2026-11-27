@@ -137,7 +137,7 @@ legal = '<section><div class="wrap"><article><h1>{h}</h1>{b}</article></div></se
 (R/"impressum.html").write_text(page("Impressum – BalkanWings","Impressum",legal.format(h="Impressum",b="""
 <p><b>⚠️ PFLICHT: Vor Veröffentlichung ausfüllen (§ 5 DDG)!</b></p>
 <p>Angaben gemäß § 5 DDG:<br>[Vor- und Nachname]<br>[Straße Hausnummer]<br>[PLZ Ort]<br>Deutschland</p>
-<p>Kontakt: E-Mail: [deine@email.de]</p>
+<p>Kontakt: E-Mail: [z.B. info@balkanwings.com]</p>
 <p>Umsatzsteuer: [Kleinunternehmer gem. § 19 UStG / USt-IdNr.]</p>
 <p>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV: [Name, Anschrift]</p>
 <p>BalkanWings ist ein Vergleichs- und Informationsportal und kein Reiseveranstalter. Verträge kommen ausschließlich mit den verlinkten Anbietern zustande.</p>""")))
@@ -148,4 +148,17 @@ legal = '<section><div class="wrap"><article><h1>{h}</h1>{b}</article></div></se
 <h2>Affiliate-Links</h2><p>Klickst du auf einen Partnerlink, wirst du zum Anbieter (z.B. Aviasales/Travelpayouts) weitergeleitet. Dieser kann Cookies setzen, um die Vermittlung zuzuordnen. Es gelten die Datenschutzbestimmungen des Anbieters.</p>
 <h2>Cookies</h2><p>Diese Seite selbst setzt keine Tracking-Cookies.</p>
 <h2>Deine Rechte</h2><p>Auskunft, Berichtigung, Löschung, Einschränkung, Widerspruch, Datenübertragbarkeit sowie Beschwerde bei einer Aufsichtsbehörde.</p>""")))
-print("ok")
+# Domain, Canonical-Links, Sitemap, robots.txt
+DOMAIN = "https://balkanwings.com"
+seiten = []
+for f in sorted(R.rglob("*.html")):
+    rel = f.relative_to(R).as_posix().replace("index.html", "")
+    html = f.read_text()
+    if 'rel="canonical"' not in html:
+        f.write_text(html.replace("<link rel=\"stylesheet\"", f'<link rel="canonical" href="{DOMAIN}/{rel}">\n<link rel="stylesheet"', 1))
+    if rel not in ("impressum.html", "datenschutz.html"):
+        seiten.append(rel)
+urls = "".join(f"<url><loc>{DOMAIN}/{x}</loc></url>" for x in seiten)
+(R/"sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{urls}</urlset>')
+(R/"robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {DOMAIN}/sitemap.xml\n")
+print("ok", len(seiten), "Seiten in der Sitemap")
