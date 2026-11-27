@@ -1,8 +1,8 @@
 # Erzeugt alle Seiten. Aufruf: python3 build.py
 import pathlib
 R = pathlib.Path(__file__).parent
-NAME = "Balkan<span>Flug</span>"
-BRAND = "BalkanFlug"
+NAME = "Balkan<span>Wings</span>"
+BRAND = "BalkanWings"
 
 def page(title, desc, body, depth=0):
     p = "../" * depth
@@ -15,7 +15,7 @@ def page(title, desc, body, depth=0):
 {body}
 <footer><div class="wrap"><p><a href="{p}impressum.html">Impressum</a><a href="{p}datenschutz.html">Datenschutz</a></p>
 <p class="note">* Werbehinweis: Links auf dieser Seite sind Affiliate-Links. Buchst du darüber, erhalten wir eine Provision – für dich ändert sich der Preis nicht. Buchung und Vertrag erfolgen direkt beim jeweiligen Anbieter.</p>
-<p>© 2026 BalkanFlug</p></div></footer>
+<p>© 2026 BalkanWings</p></div></footer>
 <script src="{p}config.js"></script><script src="{p}app.js"></script></body></html>"""
 
 # (slug, Stadt, Land, Flagge, Code, Text, Preis, Tipps, Airlines)
@@ -134,14 +134,14 @@ for z in ZIELE:
     (R/f"reiseziele/{s}.html").write_text(page(f"Günstige Flüge nach {n} ({c}) | {BRAND}",f"Billigflüge nach {n}, {l}: alle Abflughäfen, Airlines und Spartipps im Vergleich.",body,1))
 
 legal = '<section><div class="wrap"><article><h1>{h}</h1>{b}</article></div></section>'
-(R/"impressum.html").write_text(page("Impressum – BalkanFlug","Impressum",legal.format(h="Impressum",b="""
+(R/"impressum.html").write_text(page("Impressum – BalkanWings","Impressum",legal.format(h="Impressum",b="""
 <p><b>⚠️ PFLICHT: Vor Veröffentlichung ausfüllen (§ 5 DDG)!</b></p>
 <p>Angaben gemäß § 5 DDG:<br>[Vor- und Nachname]<br>[Straße Hausnummer]<br>[PLZ Ort]<br>Deutschland</p>
 <p>Kontakt: E-Mail: [deine@email.de]</p>
 <p>Umsatzsteuer: [Kleinunternehmer gem. § 19 UStG / USt-IdNr.]</p>
 <p>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV: [Name, Anschrift]</p>
-<p>BalkanFlug ist ein Vergleichs- und Informationsportal und kein Reiseveranstalter. Verträge kommen ausschließlich mit den verlinkten Anbietern zustande.</p>""")))
-(R/"datenschutz.html").write_text(page("Datenschutz – BalkanFlug","Datenschutzerklärung",legal.format(h="Datenschutzerklärung",b="""
+<p>BalkanWings ist ein Vergleichs- und Informationsportal und kein Reiseveranstalter. Verträge kommen ausschließlich mit den verlinkten Anbietern zustande.</p>""")))
+(R/"datenschutz.html").write_text(page("Datenschutz – BalkanWings","Datenschutzerklärung",legal.format(h="Datenschutzerklärung",b="""
 <p><b>⚠️ Vorlage – bitte mit einem Generator (z.B. e-recht24.de oder datenschutz-generator.de) vervollständigen.</b></p>
 <h2>Verantwortlicher</h2><p>[Name, Anschrift, E-Mail wie im Impressum]</p>
 <h2>Hosting</h2><p>Diese Website wird bei Netlify, Inc. gehostet. Beim Aufruf werden technisch notwendige Daten (z.B. IP-Adresse, Zeitpunkt) verarbeitet (Art. 6 Abs. 1 lit. f DSGVO).</p>

@@ -43,7 +43,7 @@ Deine Zielgruppe: die **Diaspora aus Kosovo, Albanien, Nordmazedonien und Monten
 - **Google:** Die Seiten heißen „Günstige Flüge nach Tirana“, „Flüge nach Pristina“ usw., also genau das, was Leute suchen. Bei der Google Search Console anmelden.
 - **Später:** Die Seite zusätzlich auf Albanisch anbieten, da gibt es weniger Konkurrenz.
 
-**Domain-Ideen** (Verfügbarkeit noch prüfen): balkanflug.de, heimatflug.de, flugkosova.ch, flugshqiperi.de
+**Domain:** balkanwings.com + balkanwings.ch (beide frei beim Check am 27.11.2026; balkanwings.de ist vergeben)
 
 ## Schritt 3 – Nach 2–3 Monaten
 Prüfen, welche Seiten und Kanäle Klicks bringen (Statistik im Travelpayouts-Dashboard).
