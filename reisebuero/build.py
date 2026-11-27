@@ -37,6 +37,8 @@ ZIELE = [
   ["Skutarisee","Budva","Kloster Ostrog"],"Direkt- und Umsteigeflüge"),
  ("zuerich","Zürich","Schweiz","🇨🇭","ZRH","Größte Stadt der Schweiz – Altstadt, Zürichsee und Alpen in der Nähe.","oft ab ~60 €",
   ["Altstadt & Bahnhofstrasse","Zürichsee-Schifffahrt","Uetliberg","Rheinfall (40 Min.)"],"Swiss, Lufthansa, Eurowings u.a."),
+ ("basel","Basel","Schweiz","🇨🇭","BSL","Kulturstadt am Rhein im Dreiländereck Schweiz–Deutschland–Frankreich.","oft ab ~60 €",
+  ["Altstadt & Basler Münster","Rheinschwimmen im Sommer","Kunstmuseum & Fondation Beyeler","Basler Fasnacht"],"easyJet, Wizz Air u.a."),
 ]
 LAENDER = []
 for z in ZIELE:
@@ -56,7 +58,7 @@ sektionen = "".join(f'<h3 style="margin:28px 0 12px">{l}</h3><div class="grid">'
 
 index = f"""<div class="hero"><div class="wrap">
 <h1>Günstige Flüge auf den Balkan</h1>
-<p>Nach Hause, zur Familie oder in den Urlaub – Kosovo, Albanien, Nordmazedonien, Montenegro und Zürich. Ab Deutschland und ab Zürich. Wir vergleichen alle Airlines für dich.</p>
+<p>Nach Hause, zur Familie oder in den Urlaub – Kosovo, Albanien, Nordmazedonien, Montenegro und die Schweiz. Ab Deutschland, Zürich und Basel. Wir vergleichen alle Airlines für dich.</p>
 <form class="search" onsubmit="flugSuche(event)">
 <div><label>Von</label><select name="von">{von_opts}</select></div>
 <div><label>Nach</label><select name="nach">{nach_opts}</select></div>
@@ -74,21 +76,21 @@ index = f"""<div class="hero"><div class="wrap">
 <section id="ziele"><div class="wrap"><h2>Unsere Ziele</h2>{sektionen}</div></section>
 <section id="extras"><div class="wrap"><h2>Alles für deine Reise</h2><div class="usp">
 <div><h3>🚗 Mietwagen</h3><p>Mietwagen direkt am Flughafen – praktisch für Familienbesuche auf dem Land.</p><a class="btn" data-partner="mietwagenLink" href="#">Mietwagen suchen*</a></div>
-<div><h3>🏨 Hotels</h3><p>Unterkünfte in Tirana, Pristina, Ohrid, Zürich oder an der Albanischen Riviera.</p><a class="btn" data-partner="hotelLink" href="#">Hotels finden*</a></div>
+<div><h3>🏨 Hotels</h3><p>Unterkünfte in Tirana, Pristina, Ohrid, Zürich, Basel oder an der Albanischen Riviera.</p><a class="btn" data-partner="hotelLink" href="#">Hotels finden*</a></div>
 <div><h3>🛡️ Reiseversicherung</h3><p>Wichtig: Kosovo, Albanien, Montenegro und Nordmazedonien sind nicht in der EU – die EU-Krankenversicherungskarte gilt dort nur eingeschränkt oder gar nicht.</p><a class="btn" data-partner="versicherungLink" href="#">Versicherung prüfen*</a></div>
 <div><h3>🎟️ Ausflüge</h3><p>Touren nach Prizren, Kotor, zum Ohridsee oder zur Albanischen Riviera.</p><a class="btn" data-partner="aktivitaetenLink" href="#">Ausflüge buchen*</a></div>
 </div></div></section>"""
-(R/"index.html").write_text(page(f"{BRAND} – Günstige Flüge nach Kosovo, Albanien, Nordmazedonien, Montenegro & Zürich","Günstige Flüge ab Deutschland und Zürich nach Pristina, Tirana, Skopje, Ohrid, Podgorica – und nach Zürich – im Vergleich.",index))
+(R/"index.html").write_text(page(f"{BRAND} – Günstige Flüge nach Kosovo, Albanien, Nordmazedonien, Montenegro & Schweiz","Günstige Flüge ab Deutschland und der Schweiz nach Pristina, Tirana, Skopje, Ohrid, Podgorica, Zürich und Basel im Vergleich.",index))
 
 liste = "".join(f'<h2>{l}</h2><ul>' + "".join(f'<li><a href="{z[0]}.html">Flüge nach {z[1]} ({z[4]})</a></li>' for z in ZIELE if z[2]==l) + "</ul>" for l in LAENDER)
-(R/"reiseziele/index.html").write_text(page(f"Alle Ziele – {BRAND}","Übersicht aller Ziele mit günstigen Flügen ab Deutschland und Zürich.",f'<section><div class="wrap"><h1>Alle Flughäfen</h1>{liste}</div></section>',1))
+(R/"reiseziele/index.html").write_text(page(f"Alle Ziele – {BRAND}","Übersicht aller Ziele mit günstigen Flügen ab Deutschland und der Schweiz.",f'<section><div class="wrap"><h1>Alle Flughäfen</h1>{liste}</div></section>',1))
 
 for z in ZIELE:
     s,n,l,f,c,t,pr,tipps,air = z
     li = "".join(f"<li>{x}</li>" for x in tipps)
     btns = " ".join(f"""<button class="btn" style="margin:4px 0" onclick="flugZiel('{vc}','{c}')">ab {vn}</button>""" for vc,vn in VON if vc!=c)
     body = f"""<section><div class="wrap"><article>
-<h1>{f} Günstige Flüge nach {n} ({c})</h1><p>{t} Flugpreise ab Deutschland bzw. Zürich: {pr} (je nach Saison und Abflughafen).</p>
+<h1>{f} Günstige Flüge nach {n} ({c})</h1><p>{t} Flugpreise ab Deutschland bzw. der Schweiz: {pr} (je nach Saison und Abflughafen).</p>
 <h2>Flüge nach {n} – wähle deinen Abflughafen</h2><p>{btns}</p>
 <p class="note">Nicht jeder Flughafen hat Direktflüge, der Vergleich zeigt dir auch Verbindungen mit Umstieg.</p>
 <h2>Welche Airlines fliegen nach {n}?</h2><p>{air}. Der Flugplan ändert sich je nach Saison, der Vergleich zeigt immer die aktuellen Verbindungen.</p>
@@ -100,7 +102,7 @@ for z in ZIELE:
 <h2>Vor Ort in {n}</h2><ul>{li}</ul>
 <p><a class="btn" data-partner="mietwagenLink" href="#">Mietwagen in {n}*</a> <a class="btn" data-partner="hotelLink" href="#">Hotels*</a> <a class="btn" data-partner="versicherungLink" href="#">Reiseversicherung*</a></p>
 </article></div></section>"""
-    (R/f"reiseziele/{s}.html").write_text(page(f"Günstige Flüge nach {n} ({c}) | {BRAND}",f"Billigflüge nach {n}, {l}: alle Abflughäfen in Deutschland und Zürich, Airlines und Spartipps im Vergleich.",body,1))
+    (R/f"reiseziele/{s}.html").write_text(page(f"Günstige Flüge nach {n} ({c}) | {BRAND}",f"Billigflüge nach {n}, {l}: alle Abflughäfen in Deutschland und der Schweiz, Airlines und Spartipps im Vergleich.",body,1))
 
 legal = '<section><div class="wrap"><article><h1>{h}</h1>{b}</article></div></section>'
 (R/"impressum.html").write_text(page("Impressum – BalkanFlug","Impressum",legal.format(h="Impressum",b="""

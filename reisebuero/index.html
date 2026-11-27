@@ -1,15 +1,15 @@
 <!doctype html><html lang="de"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>BalkanFlug – Günstige Flüge nach Kosovo, Albanien, Nordmazedonien, Montenegro & Zürich</title><meta name="description" content="Günstige Flüge ab Deutschland und Zürich nach Pristina, Tirana, Skopje, Ohrid, Podgorica – und nach Zürich – im Vergleich.">
+<title>BalkanFlug – Günstige Flüge nach Kosovo, Albanien, Nordmazedonien, Montenegro & Schweiz</title><meta name="description" content="Günstige Flüge ab Deutschland und der Schweiz nach Pristina, Tirana, Skopje, Ohrid, Podgorica, Zürich und Basel im Vergleich.">
 <link rel="stylesheet" href="style.css"></head><body>
 <header><div class="wrap"><a class="logo" href="index.html">Balkan<span>Flug</span></a>
 <nav><a href="index.html#ziele">Flughäfen</a><a href="index.html#extras">Mietwagen &amp; Mehr</a><a href="reiseziele/index.html">Alle Ziele</a></nav></div></header>
 <div class="hero"><div class="wrap">
 <h1>Günstige Flüge auf den Balkan</h1>
-<p>Nach Hause, zur Familie oder in den Urlaub – Kosovo, Albanien, Nordmazedonien, Montenegro und Zürich. Ab Deutschland und ab Zürich. Wir vergleichen alle Airlines für dich.</p>
+<p>Nach Hause, zur Familie oder in den Urlaub – Kosovo, Albanien, Nordmazedonien, Montenegro und die Schweiz. Ab Deutschland, Zürich und Basel. Wir vergleichen alle Airlines für dich.</p>
 <form class="search" onsubmit="flugSuche(event)">
 <div><label>Von</label><select name="von"><option value="FRA">Frankfurt (FRA)</option><option value="MUC">München (MUC)</option><option value="STR">Stuttgart (STR)</option><option value="DUS">Düsseldorf (DUS)</option><option value="CGN">Köln/Bonn (CGN)</option><option value="DTM">Dortmund (DTM)</option><option value="FMM">Memmingen (FMM)</option><option value="HHN">Frankfurt-Hahn (HHN)</option><option value="NUE">Nürnberg (NUE)</option><option value="HAM">Hamburg (HAM)</option><option value="BER">Berlin (BER)</option><option value="HAJ">Hannover (HAJ)</option><option value="FKB">Karlsruhe/Baden-Baden (FKB)</option><option value="BRE">Bremen (BRE)</option><option value="LEJ">Leipzig (LEJ)</option><option value="ZRH">Zürich (Schweiz) (ZRH)</option><option value="BSL">Basel (Schweiz) (BSL)</option></select></div>
-<div><label>Nach</label><select name="nach"><optgroup label="Kosovo"><option value="PRN">Pristina (PRN)</option></optgroup><optgroup label="Nordmazedonien"><option value="SKP">Skopje (SKP)</option><option value="OHD">Ohrid (OHD)</option></optgroup><optgroup label="Albanien"><option value="TIA">Tirana (TIA)</option></optgroup><optgroup label="Montenegro"><option value="TGD">Podgorica (TGD)</option></optgroup><optgroup label="Schweiz"><option value="ZRH">Zürich (ZRH)</option></optgroup></select></div>
+<div><label>Nach</label><select name="nach"><optgroup label="Kosovo"><option value="PRN">Pristina (PRN)</option></optgroup><optgroup label="Nordmazedonien"><option value="SKP">Skopje (SKP)</option><option value="OHD">Ohrid (OHD)</option></optgroup><optgroup label="Albanien"><option value="TIA">Tirana (TIA)</option></optgroup><optgroup label="Montenegro"><option value="TGD">Podgorica (TGD)</option></optgroup><optgroup label="Schweiz"><option value="ZRH">Zürich (ZRH)</option><option value="BSL">Basel (BSL)</option></optgroup></select></div>
 <div><label>Hinflug</label><input type="date" name="hin" required></div>
 <div><label>Rückflug (optional)</label><input type="date" name="rueck"></div>
 <div><label>Personen</label><select name="pax"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></div>
@@ -39,10 +39,13 @@
 <a href="reiseziele/podgorica.html">Alle Abflughäfen & Tipps →</a></div></div></div><h3 style="margin:28px 0 12px">Schweiz</h3><div class="grid"><div class="card"><div class="img" style="background:#e8f1fb">🇨🇭</div><div class="body">
 <h3>Zürich</h3><p>Schweiz · Größte Stadt der Schweiz – Altstadt, Zürichsee und Alpen in der Nähe.</p><span class="price">Flüge oft ab ~60 €</span>
 <button class="btn" onclick="flugZiel('FRA','ZRH')">Flüge ab Frankfurt*</button>
-<a href="reiseziele/zuerich.html">Alle Abflughäfen & Tipps →</a></div></div></div></div></section>
+<a href="reiseziele/zuerich.html">Alle Abflughäfen & Tipps →</a></div></div><div class="card"><div class="img" style="background:#e8f1fb">🇨🇭</div><div class="body">
+<h3>Basel</h3><p>Schweiz · Kulturstadt am Rhein im Dreiländereck Schweiz–Deutschland–Frankreich.</p><span class="price">Flüge oft ab ~60 €</span>
+<button class="btn" onclick="flugZiel('FRA','BSL')">Flüge ab Frankfurt*</button>
+<a href="reiseziele/basel.html">Alle Abflughäfen & Tipps →</a></div></div></div></div></section>
 <section id="extras"><div class="wrap"><h2>Alles für deine Reise</h2><div class="usp">
 <div><h3>🚗 Mietwagen</h3><p>Mietwagen direkt am Flughafen – praktisch für Familienbesuche auf dem Land.</p><a class="btn" data-partner="mietwagenLink" href="#">Mietwagen suchen*</a></div>
-<div><h3>🏨 Hotels</h3><p>Unterkünfte in Tirana, Pristina, Ohrid, Zürich oder an der Albanischen Riviera.</p><a class="btn" data-partner="hotelLink" href="#">Hotels finden*</a></div>
+<div><h3>🏨 Hotels</h3><p>Unterkünfte in Tirana, Pristina, Ohrid, Zürich, Basel oder an der Albanischen Riviera.</p><a class="btn" data-partner="hotelLink" href="#">Hotels finden*</a></div>
 <div><h3>🛡️ Reiseversicherung</h3><p>Wichtig: Kosovo, Albanien, Montenegro und Nordmazedonien sind nicht in der EU – die EU-Krankenversicherungskarte gilt dort nur eingeschränkt oder gar nicht.</p><a class="btn" data-partner="versicherungLink" href="#">Versicherung prüfen*</a></div>
 <div><h3>🎟️ Ausflüge</h3><p>Touren nach Prizren, Kotor, zum Ohridsee oder zur Albanischen Riviera.</p><a class="btn" data-partner="aktivitaetenLink" href="#">Ausflüge buchen*</a></div>
 </div></div></section>
