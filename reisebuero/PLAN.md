@@ -27,17 +27,23 @@ Ehrlich gesagt: Die ersten 3–6 Monate kommt kaum Geld rein. Garantiert ist nic
 | Gewerbeanmeldung | ~30 € |
 | Eigene Domain (z.B. .de) für 1 Jahr | ~10–15 € |
 | Hosting (Netlify) | 0 € |
-| Pinterest- und Meta-Ads zum Testen | ~100 € |
+| Facebook/Instagram-Werbung an die Diaspora (Sommer/Weihnachten) | ~100 € |
 | **Rücklage** (erst ausgeben, wenn etwas funktioniert) | ~150 € |
 
 **Kein Geld ausgeben für:** gekaufte Besucher, „SEO-Pakete“, Kurse.
 
-## Schritt 2 – Traffic aufbauen (kostenlos, das ist der wichtigste Teil)
-- **Inhalte schreiben:** Pro Woche 2–3 neue Reiseführer (z.B. „Mallorca im Oktober“, „Günstig nach Dubai fliegen“). In `build.py` bei `ZIELE` eintragen, dann `python3 build.py`.
-- **TikTok, Reels und Shorts:** „Für 49 € nach Barcelona“ – Deal-Videos laufen sehr gut. Link in der Bio.
-- **Pinterest:** Reise-Pins bringen über Jahre Klicks.
-- **Facebook-Gruppen und Telegram-Kanal** für Schnäppchen.
-- In der **Google Search Console** anmelden und die Sitemap einreichen.
+## Schritt 2 – Besucher holen (kostenlos, das ist der wichtigste Teil)
+Deine Zielgruppe: die **Balkan-Diaspora in Deutschland**, über eine Million Menschen, die jedes Jahr nach Hause fliegen.
+
+- **Facebook-Gruppen** der Diaspora („Bosanci u Njemačkoj“, „Srbi u Nemačkoj“, „Shqiptarët në Gjermani“ …): regelmäßig echte Deals posten, zum Beispiel „Dortmund → Tuzla für 29 €“. Vorher die Gruppenregeln lesen, sonst wirst du als Spam gelöscht.
+- **TikTok und Instagram auf Bosnisch, Kroatisch, Serbisch und Albanisch:** kurze Videos mit dem günstigsten Flug der Woche, Link in der Bio.
+- **Telegram- oder WhatsApp-Kanal** „Balkan-Flugdeals“: Deals sofort teilen.
+- **Saisonspitzen nutzen:** Ab Februar/März für die Sommerferien und ab Oktober für Weihnachten und Neujahr Werbung machen. Da ist die Nachfrage am höchsten.
+- **Mietwagen und Versicherung bewerben:** Viele mieten am Flughafen ein Auto, und dafür gibt es deutlich mehr Provision als für den Flug.
+- **Google:** Die Seiten heißen „Günstige Flüge nach Tuzla“, „Flüge nach Pristina“ usw., also genau das, was Leute suchen. Bei der Google Search Console anmelden.
+- **Später:** Die Seite zusätzlich auf Bosnisch, Kroatisch, Serbisch und Albanisch anbieten, da gibt es weniger Konkurrenz.
+
+**Domain-Ideen** (Verfügbarkeit noch prüfen): balkanflug.de, heimatflug.de, flugbalkan.de
 
 ## Schritt 3 – Nach 2–3 Monaten
 Prüfen, welche Seiten und Kanäle Klicks bringen (Statistik im Travelpayouts-Dashboard).
