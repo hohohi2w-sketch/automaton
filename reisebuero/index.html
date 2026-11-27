@@ -1,0 +1,46 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FernwehFlug – Günstige Flüge, Hotels & Reiseführer</title><meta name="description" content="Günstige Flüge vergleichen, Hotels und Aktivitäten finden – plus ehrliche Reiseführer für Barcelona, Mallorca, Lissabon und mehr.">
+<link rel="stylesheet" href="style.css"></head><body>
+<header><div class="wrap"><a class="logo" href="index.html">Fernweh<span>Flug</span></a>
+<nav><a href="index.html#ziele">Reiseziele</a><a href="index.html#extras">Hotels &amp; Mehr</a><a href="reiseziele/index.html">Reiseführer</a></nav></div></header>
+<div class="hero"><div class="wrap">
+<h1>Günstige Flüge finden. Mehr erleben.</h1><p>Wir vergleichen hunderte Airlines & Portale – du buchst zum besten Preis.</p>
+<form class="search" onsubmit="flugSuche(event)">
+<div><label>Von (Code)</label><input name="von" value="FRA" maxlength="3" required></div>
+<div><label>Nach (Code)</label><input name="nach" placeholder="z.B. BCN" maxlength="3" required></div>
+<div><label>Hinflug</label><input type="date" name="hin" required></div>
+<div><label>Rückflug (optional)</label><input type="date" name="rueck"></div>
+<div><label>Personen</label><select name="pax"><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
+<div><button class="btn" type="submit">Flüge suchen*</button></div></form>
+<p class="note" style="color:#fff;margin-top:10px">Codes: FRA Frankfurt · MUC München · BER Berlin · HAM Hamburg · DUS Düsseldorf · CGN Köln · STR Stuttgart</p>
+</div></div>
+<section id="ziele"><div class="wrap"><h2>Beliebte Reiseziele</h2><div class="grid"><div class="card"><div class="img" style="background:#e8f1fb">🏖️</div><div class="body">
+<h3>Barcelona</h3><p>Strand, Gaudí und Tapas – ideal für 4–5 Tage.</p><span class="price">Flüge ab ~60 €</span>
+<button class="btn" onclick="flugZiel('FRA','BCN')">Flüge ansehen*</button>
+<a href="reiseziele/barcelona.html">Reiseführer lesen →</a></div></div><div class="card"><div class="img" style="background:#e8f1fb">🌴</div><div class="body">
+<h3>Mallorca</h3><p>Die Lieblingsinsel der Deutschen: Buchten, Berge, Palma.</p><span class="price">Flüge ab ~50 €</span>
+<button class="btn" onclick="flugZiel('FRA','PMI')">Flüge ansehen*</button>
+<a href="reiseziele/mallorca.html">Reiseführer lesen →</a></div></div><div class="card"><div class="img" style="background:#e8f1fb">🚋</div><div class="body">
+<h3>Lissabon</h3><p>Hügel, Tram 28, Pastéis de Nata und Atlantik.</p><span class="price">Flüge ab ~70 €</span>
+<button class="btn" onclick="flugZiel('FRA','LIS')">Flüge ansehen*</button>
+<a href="reiseziele/lissabon.html">Reiseführer lesen →</a></div></div><div class="card"><div class="img" style="background:#e8f1fb">🏛️</div><div class="body">
+<h3>Rom</h3><p>2.000 Jahre Geschichte an jeder Ecke.</p><span class="price">Flüge ab ~55 €</span>
+<button class="btn" onclick="flugZiel('FRA','FCO')">Flüge ansehen*</button>
+<a href="reiseziele/rom.html">Reiseführer lesen →</a></div></div><div class="card"><div class="img" style="background:#e8f1fb">☀️</div><div class="body">
+<h3>Antalya</h3><p>All-inclusive, türkisches Meer, Sonne bis Oktober.</p><span class="price">Flüge ab ~80 €</span>
+<button class="btn" onclick="flugZiel('FRA','AYT')">Flüge ansehen*</button>
+<a href="reiseziele/antalya.html">Reiseführer lesen →</a></div></div><div class="card"><div class="img" style="background:#e8f1fb">🌆</div><div class="body">
+<h3>Dubai</h3><p>Winter-Sonne mit Wüste, Malls und Skyline.</p><span class="price">Flüge ab ~250 €</span>
+<button class="btn" onclick="flugZiel('FRA','DXB')">Flüge ansehen*</button>
+<a href="reiseziele/dubai.html">Reiseführer lesen →</a></div></div></div></div></section>
+<section id="extras"><div class="wrap"><h2>Alles für deine Reise</h2><div class="usp">
+<div><h3>🏨 Hotels</h3><p>Unterkünfte weltweit vergleichen.</p><a class="btn" data-partner="hotelLink" href="#">Hotels finden*</a></div>
+<div><h3>🎟️ Aktivitäten</h3><p>Touren & Tickets ohne Anstehen.</p><a class="btn" data-partner="aktivitaetenLink" href="#">Erlebnisse buchen*</a></div>
+<div><h3>🚗 Mietwagen</h3><p>Mietwagen inkl. Vollkasko vergleichen.</p><a class="btn" data-partner="mietwagenLink" href="#">Mietwagen suchen*</a></div>
+<div><h3>🛡️ Reiseversicherung</h3><p>Auslandskranken- & Reiseschutz.</p><a class="btn" data-partner="versicherungLink" href="#">Versicherung prüfen*</a></div>
+</div></div></section>
+<footer><div class="wrap"><p><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></p>
+<p class="note">* Werbehinweis: Links auf dieser Seite sind Affiliate-Links. Buchst du darüber, erhalten wir eine Provision – für dich ändert sich der Preis nicht. Buchung und Vertrag erfolgen direkt beim jeweiligen Anbieter.</p>
+<p>© 2026 FernwehFlug</p></div></footer>
+<script src="config.js"></script><script src="app.js"></script></body></html>
