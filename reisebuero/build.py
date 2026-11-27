@@ -18,11 +18,6 @@ def page(title, desc, body, depth=0):
 <p>© 2026 BalkanFlug</p></div></footer>
 <script src="{p}config.js"></script><script src="{p}app.js"></script></body></html>"""
 
-# Deutsche Abflughäfen (inkl. Low-Cost-Basen, die viel auf den Balkan fliegen)
-VON = [("FRA","Frankfurt"),("MUC","München"),("STR","Stuttgart"),("DUS","Düsseldorf"),("CGN","Köln/Bonn"),
-       ("DTM","Dortmund"),("FMM","Memmingen"),("HHN","Frankfurt-Hahn"),("NUE","Nürnberg"),("HAM","Hamburg"),
-       ("BER","Berlin"),("HAJ","Hannover"),("FKB","Karlsruhe/Baden-Baden"),("BRE","Bremen"),("LEJ","Leipzig"),("ZRH","Zürich (Schweiz)"),("BSL","Basel (Schweiz)")]
-
 # (slug, Stadt, Land, Flagge, Code, Text, Preis, Tipps, Airlines)
 ZIELE = [
  ("pristina","Pristina","Kosovo","🇽🇰","PRN","Der wichtigste Flughafen für die Diaspora im Kosovo.","oft ab ~70 €",
@@ -39,26 +34,60 @@ ZIELE = [
   ["Altstadt & Bahnhofstrasse","Zürichsee-Schifffahrt","Uetliberg","Rheinfall (40 Min.)"],"Swiss, Lufthansa, Eurowings u.a."),
  ("basel","Basel","Schweiz","🇨🇭","BSL","Kulturstadt am Rhein im Dreiländereck Schweiz–Deutschland–Frankreich.","oft ab ~60 €",
   ["Altstadt & Basler Münster","Rheinschwimmen im Sommer","Kunstmuseum & Fondation Beyeler","Basler Fasnacht"],"easyJet, Wizz Air u.a."),
+ ("frankfurt","Frankfurt","Deutschland","🇩🇪","FRA","Größter Flughafen Deutschlands – Drehkreuz für fast alle Airlines.","",
+  ['Römerberg & Altstadt', 'Skyline & Main Tower', 'Museumsufer'],"Verschiedene Airlines, direkt oder mit Umstieg"),
+ ("muenchen","München","Deutschland","🇩🇪","MUC","Bayerns Hauptstadt und zweitgrößter Flughafen Deutschlands.","",
+  ['Marienplatz', 'Englischer Garten', 'Oktoberfest (Sept./Okt.)'],"Verschiedene Airlines, direkt oder mit Umstieg"),
+ ("stuttgart","Stuttgart","Deutschland","🇩🇪","STR","Schwabens Metropole mit vielen Verbindungen auf den Balkan.","",
+  ['Schlossplatz', 'Mercedes-Benz- und Porsche-Museum', 'Weinberge am Neckar'],"Verschiedene Airlines, direkt oder mit Umstieg"),
+ ("duesseldorf","Düsseldorf","Deutschland","🇩🇪","DUS","Großer Flughafen in NRW mit vielen Ferienflügen.","",
+  ['Altstadt', 'Rheinuferpromenade', 'Königsallee'],"Verschiedene Airlines, direkt oder mit Umstieg"),
+ ("koeln","Köln/Bonn","Deutschland","🇩🇪","CGN","Low-Cost-Drehkreuz im Rheinland.","",
+  ['Kölner Dom', 'Altstadt am Rhein', 'Karneval'],"Verschiedene Airlines, direkt oder mit Umstieg"),
+ ("dortmund","Dortmund","Deutschland","🇩🇪","DTM","Kleiner Flughafen im Ruhrgebiet mit vielen günstigen Balkan-Flügen.","",
+  ['Deutsches Fußballmuseum', 'Signal Iduna Park', 'Phoenix-See'],"Verschiedene Airlines, direkt oder mit Umstieg"),
+ ("memmingen","Memmingen","Deutschland","🇩🇪","FMM","Allgäu-Airport – günstig für Süddeutschland.","",
+  ['Historische Altstadt', 'Allgäuer Alpen', 'Schloss Neuschwanstein (ca. 1,5 Std.)'],"Verschiedene Airlines, direkt oder mit Umstieg"),
+ ("hahn","Frankfurt-Hahn","Deutschland","🇩🇪","HHN","Low-Cost-Flughafen im Hunsrück.","",
+  ['Mosel-Tal', 'Hunsrück wandern', 'Busverbindung nach Frankfurt'],"Verschiedene Airlines, direkt oder mit Umstieg"),
+ ("nuernberg","Nürnberg","Deutschland","🇩🇪","NUE","Frankens Flughafen, nah an der Altstadt.","",
+  ['Kaiserburg', 'Christkindlesmarkt', 'Altstadt'],"Verschiedene Airlines, direkt oder mit Umstieg"),
+ ("hamburg","Hamburg","Deutschland","🇩🇪","HAM","Größter Flughafen im Norden.","",
+  ['Elbphilharmonie', 'Speicherstadt', 'Hafenrundfahrt'],"Verschiedene Airlines, direkt oder mit Umstieg"),
+ ("berlin","Berlin","Deutschland","🇩🇪","BER","Hauptstadtflughafen mit Verbindungen in die ganze Welt.","",
+  ['Brandenburger Tor', 'Museumsinsel', 'East Side Gallery'],"Verschiedene Airlines, direkt oder mit Umstieg"),
+ ("hannover","Hannover","Deutschland","🇩🇪","HAJ","Flughafen für Niedersachsen.","",
+  ['Herrenhäuser Gärten', 'Maschsee', 'Neues Rathaus'],"Verschiedene Airlines, direkt oder mit Umstieg"),
+ ("karlsruhe","Karlsruhe/Baden-Baden","Deutschland","🇩🇪","FKB","Kleiner Flughafen am Rand des Schwarzwalds.","",
+  ['Schloss Karlsruhe', 'Thermen in Baden-Baden', 'Schwarzwald'],"Verschiedene Airlines, direkt oder mit Umstieg"),
+ ("bremen","Bremen","Deutschland","🇩🇪","BRE","Stadtnaher Flughafen im Nordwesten.","",
+  ['Rathaus & Roland', 'Schnoor-Viertel', 'Bremer Stadtmusikanten'],"Verschiedene Airlines, direkt oder mit Umstieg"),
+ ("leipzig","Leipzig","Deutschland","🇩🇪","LEJ","Flughafen für Sachsen und Mitteldeutschland.","",
+  ['Völkerschlachtdenkmal', 'Zoo Leipzig', 'Altstadt & Passagen'],"Verschiedene Airlines, direkt oder mit Umstieg"),
 ]
-LAENDER = []
-for z in ZIELE:
-    if z[2] not in LAENDER: LAENDER.append(z[2])
+LAENDER = ["Deutschland","Schweiz","Kosovo","Albanien","Nordmazedonien","Montenegro"]
+assert set(LAENDER)=={z[2] for z in ZIELE}
+BALKAN = [l for l in LAENDER if l not in ("Deutschland",)]
 
-von_opts = "".join(f'<option value="{c}">{n} ({c})</option>' for c,n in VON)
-nach_opts = "".join(f'<optgroup label="{l}">' + "".join(f'<option value="{z[4]}">{z[1]} ({z[4]})</option>' for z in ZIELE if z[2]==l) + "</optgroup>" for l in LAENDER)
+def opts(default):
+    return "".join(f'<optgroup label="{l}">' + "".join(f'<option value="{z[4]}"{" selected" if z[4]==default else ""}>{z[1]} ({z[4]})</option>' for z in ZIELE if z[2]==l) + "</optgroup>" for l in LAENDER)
+
+von_opts = opts("FRA")
+nach_opts = opts("PRN")
 
 def card(z,p=""):
     s,n,l,f,c,t,pr,_,_ = z
     return f"""<div class="card"><div class="img" style="background:#e8f1fb">{f}</div><div class="body">
-<h3>{n}</h3><p>{l} · {t}</p><span class="price">Flüge {pr}</span>
+<h3>{n}</h3><p>{l} · {t}</p>{f'<span class="price">Flüge {pr}</span>' if pr else ""}
 <button class="btn" onclick="flugZiel('FRA','{c}')">Flüge ab Frankfurt*</button>
 <a href="{p}reiseziele/{s}.html">Alle Abflughäfen & Tipps →</a></div></div>"""
 
-sektionen = "".join(f'<h3 style="margin:28px 0 12px">{l}</h3><div class="grid">' + "".join(card(z) for z in ZIELE if z[2]==l) + "</div>" for l in LAENDER)
+sektionen = "".join(f'<h3 style="margin:28px 0 12px">{l}</h3><div class="grid">' + "".join(card(z) for z in ZIELE if z[2]==l) + "</div>" for l in BALKAN)
+sektionen += '<h3 style="margin:28px 0 12px">Deutschland – auch als Ziel, z.B. für den Rückflug</h3><p>' + " · ".join(f'<a href="reiseziele/{z[0]}.html">{z[1]} ({z[4]})</a>' for z in ZIELE if z[2]=="Deutschland") + "</p>"
 
 index = f"""<div class="hero"><div class="wrap">
-<h1>Günstige Flüge auf den Balkan</h1>
-<p>Nach Hause, zur Familie oder in den Urlaub – Kosovo, Albanien, Nordmazedonien, Montenegro und die Schweiz. Ab Deutschland, Zürich und Basel. Wir vergleichen alle Airlines für dich.</p>
+<h1>Günstige Flüge zwischen Deutschland, der Schweiz und dem Balkan</h1>
+<p>Nach Hause, zur Familie, in den Urlaub – und wieder zurück. Kosovo, Albanien, Nordmazedonien, Montenegro, Schweiz und Deutschland: Jeder Flughafen ist Abflug und Ziel. Wir vergleichen alle Airlines für dich.</p>
 <form class="search" onsubmit="flugSuche(event)">
 <div><label>Von</label><select name="von">{von_opts}</select></div>
 <div><label>Nach</label><select name="nach">{nach_opts}</select></div>
@@ -80,18 +109,18 @@ index = f"""<div class="hero"><div class="wrap">
 <div><h3>🛡️ Reiseversicherung</h3><p>Wichtig: Kosovo, Albanien, Montenegro und Nordmazedonien sind nicht in der EU – die EU-Krankenversicherungskarte gilt dort nur eingeschränkt oder gar nicht.</p><a class="btn" data-partner="versicherungLink" href="#">Versicherung prüfen*</a></div>
 <div><h3>🎟️ Ausflüge</h3><p>Touren nach Prizren, Kotor, zum Ohridsee oder zur Albanischen Riviera.</p><a class="btn" data-partner="aktivitaetenLink" href="#">Ausflüge buchen*</a></div>
 </div></div></section>"""
-(R/"index.html").write_text(page(f"{BRAND} – Günstige Flüge nach Kosovo, Albanien, Nordmazedonien, Montenegro & Schweiz","Günstige Flüge ab Deutschland und der Schweiz nach Pristina, Tirana, Skopje, Ohrid, Podgorica, Zürich und Basel im Vergleich.",index))
+(R/"index.html").write_text(page(f"{BRAND} – Günstige Flüge Deutschland, Schweiz, Kosovo, Albanien, Nordmazedonien & Montenegro","Günstige Flüge hin und zurück zwischen Deutschland, der Schweiz und Pristina, Tirana, Skopje, Ohrid und Podgorica im Vergleich.",index))
 
 liste = "".join(f'<h2>{l}</h2><ul>' + "".join(f'<li><a href="{z[0]}.html">Flüge nach {z[1]} ({z[4]})</a></li>' for z in ZIELE if z[2]==l) + "</ul>" for l in LAENDER)
-(R/"reiseziele/index.html").write_text(page(f"Alle Ziele – {BRAND}","Übersicht aller Ziele mit günstigen Flügen ab Deutschland und der Schweiz.",f'<section><div class="wrap"><h1>Alle Flughäfen</h1>{liste}</div></section>',1))
+(R/"reiseziele/index.html").write_text(page(f"Alle Ziele – {BRAND}","Übersicht aller Flughäfen – jeder ist Abflug und Ziel.",f'<section><div class="wrap"><h1>Alle Flughäfen</h1>{liste}</div></section>',1))
 
 for z in ZIELE:
     s,n,l,f,c,t,pr,tipps,air = z
     li = "".join(f"<li>{x}</li>" for x in tipps)
-    btns = " ".join(f"""<button class="btn" style="margin:4px 0" onclick="flugZiel('{vc}','{c}')">ab {vn}</button>""" for vc,vn in VON if vc!=c)
+    btns = "".join(f'<p><b>{lv}:</b> ' + " ".join(f"""<button class="btn" style="margin:4px 0" onclick="flugZiel('{v[4]}','{c}')">ab {v[1]}</button>""" for v in ZIELE if v[2]==lv and v[4]!=c) + "</p>" for lv in (BALKAN+['Deutschland'] if l=='Deutschland' else LAENDER) if any(v[2]==lv and v[4]!=c for v in ZIELE))
     body = f"""<section><div class="wrap"><article>
-<h1>{f} Günstige Flüge nach {n} ({c})</h1><p>{t} Flugpreise ab Deutschland bzw. der Schweiz: {pr} (je nach Saison und Abflughafen).</p>
-<h2>Flüge nach {n} – wähle deinen Abflughafen</h2><p>{btns}</p>
+<h1>{f} Günstige Flüge nach {n} ({c})</h1><p>{t} {('Flugpreise: '+pr+' (je nach Saison und Abflughafen).') if pr else 'Die Preise hängen von Saison und Abflughafen ab.'}</p>
+<h2>Flüge nach {n} – wähle deinen Abflughafen</h2>{btns}
 <p class="note">Nicht jeder Flughafen hat Direktflüge, der Vergleich zeigt dir auch Verbindungen mit Umstieg.</p>
 <h2>Welche Airlines fliegen nach {n}?</h2><p>{air}. Der Flugplan ändert sich je nach Saison, der Vergleich zeigt immer die aktuellen Verbindungen.</p>
 <h2>Spartipps für Flüge nach {n}</h2><ul>
@@ -102,7 +131,7 @@ for z in ZIELE:
 <h2>Vor Ort in {n}</h2><ul>{li}</ul>
 <p><a class="btn" data-partner="mietwagenLink" href="#">Mietwagen in {n}*</a> <a class="btn" data-partner="hotelLink" href="#">Hotels*</a> <a class="btn" data-partner="versicherungLink" href="#">Reiseversicherung*</a></p>
 </article></div></section>"""
-    (R/f"reiseziele/{s}.html").write_text(page(f"Günstige Flüge nach {n} ({c}) | {BRAND}",f"Billigflüge nach {n}, {l}: alle Abflughäfen in Deutschland und der Schweiz, Airlines und Spartipps im Vergleich.",body,1))
+    (R/f"reiseziele/{s}.html").write_text(page(f"Günstige Flüge nach {n} ({c}) | {BRAND}",f"Billigflüge nach {n}, {l}: alle Abflughäfen, Airlines und Spartipps im Vergleich.",body,1))
 
 legal = '<section><div class="wrap"><article><h1>{h}</h1>{b}</article></div></section>'
 (R/"impressum.html").write_text(page("Impressum – BalkanFlug","Impressum",legal.format(h="Impressum",b="""
