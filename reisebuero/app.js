@@ -5,7 +5,7 @@
   window.flugSuche = function(e){
     e.preventDefault();
     var f=e.target, von=f.von.value.trim().toUpperCase(), nach=f.nach.value.trim().toUpperCase();
-    if(von.length!==3||nach.length!==3){alert("Bitte 3-stelligen Flughafen-Code eingeben, z.B. MUC, FRA, BCN");return;}
+    if(von===nach){alert("Abflug- und Zielflughafen sind gleich – bitte ein anderes Ziel wählen.");return;}
     var pfad = von + ddmm(f.hin.value) + nach + ddmm(f.rueck.value) + (f.pax.value||"1");
     var url = "https://www.aviasales.com/search/" + pfad + "?marker=" + encodeURIComponent(C.marker||"") + "&locale=de&currency=eur";
     window.open(url,"_blank","noopener");

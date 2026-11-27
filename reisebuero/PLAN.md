@@ -33,17 +33,17 @@ Ehrlich gesagt: Die ersten 3–6 Monate kommt kaum Geld rein. Garantiert ist nic
 **Kein Geld ausgeben für:** gekaufte Besucher, „SEO-Pakete“, Kurse.
 
 ## Schritt 2 – Besucher holen (kostenlos, das ist der wichtigste Teil)
-Deine Zielgruppe: die **Balkan-Diaspora in Deutschland**, über eine Million Menschen, die jedes Jahr nach Hause fliegen.
+Deine Zielgruppe: die **Diaspora aus Kosovo, Albanien, Nordmazedonien und Montenegro in Deutschland und der Schweiz**. Allein in der Schweiz leben sehr viele Menschen mit Wurzeln im Kosovo und in Albanien, daher ist Zürich als Abflughafen wichtig.
 
-- **Facebook-Gruppen** der Diaspora („Bosanci u Njemačkoj“, „Srbi u Nemačkoj“, „Shqiptarët në Gjermani“ …): regelmäßig echte Deals posten, zum Beispiel „Dortmund → Tuzla für 29 €“. Vorher die Gruppenregeln lesen, sonst wirst du als Spam gelöscht.
-- **TikTok und Instagram auf Bosnisch, Kroatisch, Serbisch und Albanisch:** kurze Videos mit dem günstigsten Flug der Woche, Link in der Bio.
-- **Telegram- oder WhatsApp-Kanal** „Balkan-Flugdeals“: Deals sofort teilen.
+- **Facebook-Gruppen** der Diaspora (z.B. „Shqiptarët në Gjermani“, „Shqiptarët në Zvicër“, Kosovaren- und Mazedonier-Gruppen): regelmäßig echte Deals posten, zum Beispiel „Zürich → Pristina für 59 €“. Vorher die Gruppenregeln lesen, sonst wirst du als Spam gelöscht.
+- **TikTok und Instagram auf Albanisch und Mazedonisch:** kurze Videos mit dem günstigsten Flug der Woche, Link in der Bio.
+- **Telegram- oder WhatsApp-Kanal** „Flugdeals Kosovo & Albanien“: Deals sofort teilen.
 - **Saisonspitzen nutzen:** Ab Februar/März für die Sommerferien und ab Oktober für Weihnachten und Neujahr Werbung machen. Da ist die Nachfrage am höchsten.
 - **Mietwagen und Versicherung bewerben:** Viele mieten am Flughafen ein Auto, und dafür gibt es deutlich mehr Provision als für den Flug.
-- **Google:** Die Seiten heißen „Günstige Flüge nach Tuzla“, „Flüge nach Pristina“ usw., also genau das, was Leute suchen. Bei der Google Search Console anmelden.
-- **Später:** Die Seite zusätzlich auf Bosnisch, Kroatisch, Serbisch und Albanisch anbieten, da gibt es weniger Konkurrenz.
+- **Google:** Die Seiten heißen „Günstige Flüge nach Tirana“, „Flüge nach Pristina“ usw., also genau das, was Leute suchen. Bei der Google Search Console anmelden.
+- **Später:** Die Seite zusätzlich auf Albanisch anbieten, da gibt es weniger Konkurrenz.
 
-**Domain-Ideen** (Verfügbarkeit noch prüfen): balkanflug.de, heimatflug.de, flugbalkan.de
+**Domain-Ideen** (Verfügbarkeit noch prüfen): balkanflug.de, heimatflug.de, flugkosova.ch, flugshqiperi.de
 
 ## Schritt 3 – Nach 2–3 Monaten
 Prüfen, welche Seiten und Kanäle Klicks bringen (Statistik im Travelpayouts-Dashboard).
